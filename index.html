@@ -1,11 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DORMANT</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Dormant">
+  <meta property="og:title" content="Dormant"/>
+  <meta property="og:description" content="Dormant: Defending against Pose-driven Human Image Animation"/>
+  <meta property="og:url" content="https://dormantcoder.github.io/DORMANT/"/>
+  <meta name="twitter:title" content="Dormant">
+  <meta name="twitter:description" content="Dormant: Defending against Pose-driven Human Image Animation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dormant: Defending against Pose-driven Human Image Animation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>DORMANT: Defending against Pose-driven Human Image Animation</h1>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dormant: Defending against Pose-driven Human Image Animation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://anonymous.4open.science/r/Dormant-8446/"  target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="teaser" autoplay controls muted loop height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Dormant prevents unauthorized image usage in malicious pose-driven human image animation.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pose-driven human image animation has achieved tremendous progress, enabling the generation of vivid and realistic human videos from just one single photo.
+            However, it conversely exacerbates the risk of image misuse, as attackers may use one available image to create videos involving politics, violence and other illegal content.
+            To counter this threat, we propose Dormant, a novel protection approach tailored to defend against pose-driven human image animation techniques.
+            Dormant applies protective perturbation to one human image, preserving the visual similarity to the original but resulting in poor-quality video generation.
+            The protective perturbation is optimized to induce misextraction of appearance features from the image and create incoherence among the generated video frames.
+            Our extensive evaluation across 8 animation methods and 4 datasets demonstrates the superiority of Dormant over 6 baseline protection methods, leading to misaligned identities, visual distortions, noticeable artifacts, and inconsistent frames in the generated videos.
+            Moreover, Dormant shows effectiveness on 6 real-world commercial services, even with fully black-box access.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+      <div class="item">
+        <img src="static/images/overview.png" alt="Image overview"/>
+        <h2 class="content has-text-justified">
+          The overview of our method.
+          Dormant introduces protective perturbation \(\delta\) to the human image \(x\), resulting in the protected image \(x_p = x + \delta\).
+          \(x_p\) is visually similar to \(x\) but would lead to poor-quality video generation when used.
+          We utilize PGD to optimize \(\delta\) according to our proposed objective function \(\mathcal{L}_{Dormant}\), which contains: 1) \(\mathcal{L}_{vae}\) and \(\mathcal{L}_{feature}\), aiming to induce misextraction of appearance features from the reference image;
+          2) \(\mathcal{L}_{frame}\), designed to cause incoherence among the generated video frames. Additionally, we adopt LPIPS (\(\mathcal{L}_{lpips}\), focusing on preserving the visual similarity to the original image), EoT, and Momentum, to further enhance the imperceptibility, robustness, and transferability of \(\delta\), respectively.
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Effectiveness</h2>
+      <h2 class="title is-4">Animations</h2>
+      <h2 class="content has-text-centered"> Dormant exhibits excellent effectiveness against eight animation methods, and across four datasets. The generated videos display poor quality, such as mismatched appearances, distorted backgrounds, visible artifacts, and incoherent frames.</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-animation1">
+          <video poster="" id="animation1" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation2">
+          <video poster="" id="animation2" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation3">
+          <video poster="" id="animation3" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation4">
+          <video poster="" id="animation4" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation5">
+          <video poster="" id="animation5" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation6">
+          <video poster="" id="animation6" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation6.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation7">
+          <video poster="" id="animation7" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation7.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-animation8">
+          <video poster="" id="animation8" autoplay controls muted loop height="100%">
+            <source src="static/videos/animation8.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Datasets</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-dataset1">
+          <video poster="" id="dataset1" autoplay controls muted loop height="100%">
+            <source src="static/videos/dataset1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dataset2">
+          <video poster="" id="dataset2" autoplay controls muted loop height="100%">
+            <source src="static/videos/dataset2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dataset3">
+          <video poster="" id="dataset3" autoplay controls muted loop height="100%">
+            <source src="static/videos/dataset3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dataset4">
+          <video poster="" id="dataset4" autoplay controls muted loop height="100%">
+            <source src="static/videos/dataset4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Robustness</h2>
+      <h2 class="title is-4">Transformations</h2>
+      <h2 class="content has-text-centered"> Dormant demonstrates remarkable robustness against five popular transformations and six advanced purifications. Although these methods somewhat reduce Dormant's protective effect, the generated videos still cannot be directly used for malicious purposes due to their low quality, thereby effectively safeguarding the individuals' rights to portrait and privacy.</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-transformation1">
+          <video poster="" id="transformation1" autoplay controls muted loop height="100%">
+            <source src="static/videos/transformation1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-transformation2">
+          <video poster="" id="transformation2" autoplay controls muted loop height="100%">
+            <source src="static/videos/transformation2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-transformation3">
+          <video poster="" id="transformation3" autoplay controls muted loop height="100%">
+            <source src="static/videos/transformation3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-transformation4">
+          <video poster="" id="transformation4" autoplay controls muted loop height="100%">
+            <source src="static/videos/transformation4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-transformation5">
+          <video poster="" id="transformation5" autoplay controls muted loop height="100%">
+            <source src="static/videos/transformation5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Purifications</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-purification1">
+          <video poster="" id="purification1" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-purification2">
+          <video poster="" id="purification2" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-purification3">
+          <video poster="" id="purification3" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-purification4">
+          <video poster="" id="purification4" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-purification5">
+          <video poster="" id="purification5" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-purification6">
+          <video poster="" id="purification6" autoplay controls muted loop height="100%">
+            <source src="static/videos/purification6.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Transferability</h2>
+      <h2 class="title is-4">Image-to-Video</h2>
+      <h2 class="content has-text-centered"> Dormant shows superior transferability across four image-to-video methods, four image-to-image methods, and six real-world commercial services with black-box access, where the LDMs use different architectures and are trained on diverse datasets.</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-i2v12">
+          <video poster="" id="i2v12" autoplay controls muted loop height="100%">
+            <source src="static/videos/i2v12.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-i2v34">
+          <video poster="" id="i2v34" autoplay controls muted loop height="100%">
+            <source src="static/videos/i2v34.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Image-to-Image</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-i2i1">
+          <img src="static/images/i2i12.png" alt="Image i2i12">
+        </div>
+        <div class="item item-i2i2">
+          <img src="static/images/i2i34.png" alt="Image i2i34">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Commercial Services</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-service12">
+          <video poster="" id="service12" autoplay controls muted loop height="100%">
+            <source src="static/videos/service12.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-service34">
+          <video poster="" id="service34" autoplay controls muted loop height="100%">
+            <source src="static/videos/service34.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-service56">
+          <img src="static/images/service56.png" alt="Image service56">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
